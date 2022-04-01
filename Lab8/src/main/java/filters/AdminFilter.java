@@ -10,6 +10,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.*;
+import ca.sait.securitydemo12.models.*;
+import ca.sait.securitydemo12.dataaccess.*;
+import models.*;
+
 
 /**
  *
@@ -29,6 +34,18 @@ public class AdminFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        
+        User user = new User(request.getParameter("email"));
+      
+        
+        //Check if user is an admin or not
+        
+            //chain.doFilter(request, response);
+        
+           // httpResponse.sendRedirect("/notes");
+        
            
     }
 

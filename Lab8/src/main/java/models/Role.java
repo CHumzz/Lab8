@@ -1,4 +1,4 @@
-package ca.sait.securitydemo12.models;
+package models;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import ca.sait.securitydemo12.models.*;
 
 /**
  *
