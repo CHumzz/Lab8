@@ -36,18 +36,19 @@ public class AdminFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
+        HttpSession session = httpRequest.getSession();
         
-        User user = new User(request.getParameter("email"));
+        User user = (User) session.getAttribute("user");
       
         
         //Check if user is an admin or not
         
-            //chain.doFilter(request, response);
-        
-           // httpResponse.sendRedirect("/notes");
-        
-           
-    }
+            if(user.getRole().getRoleId() == 1){
+                    chain.doFilter(request, response);
+            } else {
+                httpResponse.sendRedirect("/notes");
+            }
+                  }
 
     /**
      * Destroy method for this filter
